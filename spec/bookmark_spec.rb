@@ -12,7 +12,7 @@ describe Bookmark do
       Bookmark.create(url: "https://en.wikipedia.org/wiki/Ruby", title: 'Wikipedia - Ruby')
       Bookmark.create(url: "https://en.wikipedia.org/wiki/SQL", title: 'Wikipedia - SQL')
   
-      bookmarks = Bookmark.all # bookmarks, is now an array of all the bookmark table data
+      bookmarks = Bookmark.all # bookmarks is now an array of all the bookmark table data
 
     # test to make sure that Bookmark instance responds to id and url
       expect(bookmarks.length).to eq 3
@@ -36,4 +36,13 @@ describe Bookmark do
     end 
   end
 
+  describe '.delete' do 
+    it "delete the chosen bookmark" do 
+      bookmark = Bookmark.create(url: "http://www.google.com", title: 'Google')
+
+      Bookmark.delete(id: bookmark.id)
+      
+      expect(Bookmark.all.length).to eq 0
+    end 
+  end
 end 
