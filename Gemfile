@@ -14,3 +14,5 @@ gem 'sinatra-contrib'
 group :development, :test do
   gem 'rubocop', '1.30'
 end
+
+gem 'pg'
