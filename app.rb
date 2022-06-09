@@ -1,11 +1,14 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/bookmark'
+require 'pg'
 
 class BookmarkManager < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  enable :sessions, :method_override # used to turn post requests into put or delete
 
   get '/' do
     'Bookmark Manager'
@@ -22,6 +25,13 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks' do 
     Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
+
+  delete '/bookmarks/:id' do 
+    p params
+    conn = PG.connect(dbname: 'bookmark_manager_test')
+    conn.exec_params("DELETE FROM bookmarks WHERE id = $1", [params[:id]])
     redirect '/bookmarks'
   end
 
