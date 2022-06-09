@@ -35,7 +35,7 @@ I'd like to add new bookmarks (the webpage's address and title)
 
 ```
 As a user 
-So that I can remove a webpage
+So that I can remove a bookmark from Bookmark Manager
 I'd like to delete bookmarks
 ```
 
