@@ -5,6 +5,6 @@ def setup_test_database
 
   conn = PG.connect(dbname: 'bookmark_manager_test')
 
-  # CLear the data in the bookmarks table
+  # Clear the data in the bookmarks table
   conn.exec("TRUNCATE bookmarks;")
 end
