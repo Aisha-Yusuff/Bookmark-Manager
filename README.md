@@ -1,6 +1,6 @@
-## Bookmark Manager
+# Bookmark Manager
 
-# Specifications:
+## Specifications:
 * Show a list of bookmarks
 * Add new bookmarks
 * Delete bookmarks
@@ -11,46 +11,75 @@
 * Users are restricted to manage only their own bookmarks
 
 
-# User Stories
-## 1
+## User Stories
+
+Here is a list of the user stories created in order to fulfil the specifications mentioned above: 
+
+### 1
+
+```
 As a user
 So that I can view my bookmarks
 I'd like to see a lit of bookmarks
+```
 
-## 2
+### 2
+
+```
 As a user 
 So that I can save a webpage
 I'd like to add new bookmarks (the webpage's address and title)
+```
 
-## 3
+### 3
+
+```
 As a user 
 So that I can remove a webpage
 I'd like to delete bookmarks
+```
 
-## 4 
+### 4 
+
+```
 As a user 
 So that I can manage my bookmarks
 I'd like to update my bookmarks
+```
 
-## 5
+### 5
+
+```
 As a user 
 So that I can make notes on bookmarks
 I'd like to comment on bookmarks
+```
 
-## 6
+### 6
+
+```
 As a user 
 So that I can organise my bookmarks
 I'd like to tag bookmarks into categories
+```
 
-## 7
+### 7
+
+```
 As a user
 So that I can find a specific bookmark
 I'd like to filter bookmarks by tag
+```
 
-## 8 
+### 8 
+
+```
 As a user
 So that I can protect my bookmarks
 I'd like to be the only user who can manage my bookmarks
+```
+
+## Getting Started
 
 ### To set up the database
 
