@@ -29,20 +29,17 @@ class BookmarkManager < Sinatra::Base
   end
 
   delete '/bookmarks/:id' do 
-    p params
-    conn = PG.connect(dbname: 'bookmark_manager_test')
-    conn.exec_params("DELETE FROM bookmarks WHERE id = $1", [params[:id]])
+    Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
 
-  get '/bookmarks/:id/edit' do 
-    @bookmark_id = params[:id]
-    erb :'bookmarks/edit'
+  get '/bookmarks/:id/edit' do
+    @bookmark = Bookmark.find(id: params[:id])
+    erb :"bookmarks/edit"
   end
 
-  patch '/bookmarks/:id' do 
-    p params 
-    Bookmark.update(id: params[:id], url: params[:url], title: params[:title])
+  patch '/bookmarks/:id' do
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url])
     redirect '/bookmarks'
   end
 
