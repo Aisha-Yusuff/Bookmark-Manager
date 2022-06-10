@@ -1,7 +1,7 @@
 feature "Deleting a bookmark" do 
   scenario "When a user wants to remove a bookmark" do 
     # create test data
-    Bookmark.create(url: 'http://www.google.com', title: 'Google' )
+    Bookmark.create(url: 'http://www.google.com', title: 'Google')
     visit ('/bookmarks')
 
     # check that the test data is on the page
