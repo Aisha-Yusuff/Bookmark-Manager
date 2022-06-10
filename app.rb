@@ -8,7 +8,7 @@ class BookmarkManager < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  enable :sessions, :method_override # used to turn post requests into put or delete
+  enable :sessions, :method_override # used to turn post requests into delete or patch (update)
 
   get '/' do
     'Bookmark Manager'
@@ -32,6 +32,21 @@ class BookmarkManager < Sinatra::Base
     p params
     conn = PG.connect(dbname: 'bookmark_manager_test')
     conn.exec_params("DELETE FROM bookmarks WHERE id = $1", [params[:id]])
+    redirect '/bookmarks'
+  end
+
+  get '/bookmarks/:id/edit' do 
+    @bookmark_id = params[:id]
+    erb :'bookmarks/edit'
+  end
+
+  patch '/bookmarks/:id' do 
+    p params 
+    conn = PG.connect(dbname: 'bookmark_manager_test')
+    conn.exec_params(
+      "UPDATE bookmarks SET url = $1, title = $2 WHERE id = $3",
+      [ params[:url], params[:title], params[:id] ]
+    )
     redirect '/bookmarks'
   end
 
