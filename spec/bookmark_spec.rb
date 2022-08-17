@@ -29,6 +29,8 @@ describe Bookmark do
       # persisted_data = data that doesn't change, instead of relying on results from .all     
       persisted_data = persisted_data(id: bookmark.id)
 
+      p bookmark
+
       expect(bookmark).to be_a Bookmark
       expect(bookmark.id).to eq persisted_data['id']
       expect(bookmark.url).to eq 'http://www.example.org'
